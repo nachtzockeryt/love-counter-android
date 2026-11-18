@@ -1,0 +1,34 @@
+[package]
+name = "love_counter"
+version = "0.1.0"
+edition = "2021"
+description = "A lightweight Android relationship counter built with Rust and egui"
+license = "MIT"
+readme = "README.md"
+
+[lib]
+name = "love_counter"
+crate-type = ["cdylib"]
+
+[dependencies]
+eframe = { version = "0.31", features = ["android-native-activity"] }
+winit = { version = "0.30", features = ["android-native-activity"] }
+chrono = "0.4"
+chrono-tz = "0.10"
+iana-time-zone = "0.1"
+log = "0.4"
+android_logger = "0.14"
+
+[package.metadata.android]
+package = "com.kevin.lovecounter"
+apk_name = "LoveCounter"
+build_targets = ["aarch64-linux-android"]
+resources = "res"
+
+[package.metadata.android.sdk]
+min_sdk_version = 24
+target_sdk_version = 34
+
+[package.metadata.android.application]
+label = "Love Counter"
+icon = "@mipmap/ic_launcher"
